@@ -1,0 +1,10 @@
+.container { border: 1px solid red; margin-bottom: 20px;}
+.column { border: 1px solid blue; float:left; width: 30%; text-align:center; margin-top:20px; background-color:  orange;}
+
+.row {
+  clear:both;
+
+}
+.append {
+  margin-top:20px;
+}

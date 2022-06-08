@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container { border: 1px solid red; }
+        .column { border: 1px solid blue; float:left; width: 30%; text-align:center; }
+
+        .row {
+        clear:both;
+
+        }
+        .append {
+        margin-top:20px;
+        }
+    </style>
+    <title>kek</title>
+</head>
+<body >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <div class="box">
+    <div class="container">
+        <div class="column">i am container 1</div>
+        <div class="column">i am container 2</div>
+        <div class="column"> i am container 3</div>
+        <h3>
+    C1
+    </h3>
+    </div>
+    <div class="container">
+
+        <div class="column">i am container 4</div>
+        <div class="column">i am container 5</div>
+        <div class="column">i am container 6</div>
+        <h3>
+        C2
+        </h3>
+    </div>
+    <div class="container">
+        <div class="column">i am container 7</div>
+        <div class="column">i am container 8</div>
+        <div class="column">i am container 9</div>
+    <h3>
+    C3
+    </h3>
+    </div>
+    </div>
+
+
+    <div class="row">
+    <button class="append">
+        Add 
+    </button>
+
+    </div>
+    <script>
+        $(document).on('click', '.append', function(){ //event delegation
+
+        total=$(this).parent().prev().find('.container').children('.column').length; // get total number of columns, selector is long, but, you start from button, get its parent div, get prev() element, which is container, count children 
+        $('.box').append('<div class="container"></div>'); //append container 
+        for(i=total+1;i<total+4;i++) {
+        $('.container').last().append("<div class='column'>i am container"+i+"</div>"); // append 3 columns to LAST container with labels
+        }
+        $('.container').last().append('<h3>C'+(total+3)/3+'</h3>'); //append h3 with label
+        });
+    </script>
+</body>
+</html>
